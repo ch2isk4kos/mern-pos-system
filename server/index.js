@@ -35,7 +35,7 @@ app.all("/*", function (req, res, next) {
   }
 });
 
-// home
+// Home
 app.get("/", function (req, res) {
   res.send("POS systems a go");
 });
