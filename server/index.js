@@ -62,6 +62,6 @@ io.on("connection", function (socket) {
   });
 });
 
-server.listen(port, () =>
+server.listen(PORT, () =>
   console.log(`POS system server listening on port: ${PORT}`)
 );
