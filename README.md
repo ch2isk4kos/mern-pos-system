@@ -19,6 +19,7 @@
 
 [Express](https://expressjs.com)</br>
 [Node](https://nodejs.org)</br>
+[Socket.io](https://socket.io/docs/v4/)</br>
 
 ## Resources
 
