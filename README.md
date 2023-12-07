@@ -5,6 +5,7 @@
 ### Client
 
 [React](https://react.dev)</br>
+[React Query](https://tanstack.com/query/v3/docs/react/overview)</br>
 [Vite](https://vitejs.dev)</br>
 
 ### Database
