@@ -7,8 +7,8 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const bodyParser = require("body-parser");
 
-// const PORT = 80;
-const PORT = process.env.PORT;
+const PORT = 80;
+// const PORT = process.env.PORT;
 
 let liveCart;
 
@@ -16,7 +16,7 @@ console.log(`POS system running`);
 
 // MIDDLEWARE
 app.use(bodyParser.json());
-app.use(bodyParser.urlEncoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // ROUTES
 app.all("/*", function (req, res, next) {
@@ -40,11 +40,13 @@ app.get("/", function (req, res) {
   res.send("POS systems a go");
 });
 
-app.use("/api/inventory", require("./api/inventory"));
-app.use("/api/transactions", require("./api/transactions"));
+// app.use("/api/inventory", require("./api/inventory"));
+// app.use("/api/transactions", require("./api/transactions"));
 
 // WEB SOCKET
 io.on("connection", function (socket) {
+  console.log(`Connected to webb socket`);
+
   // on page load, show user current cart
   socket.on("cart-transaction-complete", function () {
     socket.broadcast.emit("update-live-cart-display", {});
@@ -62,6 +64,10 @@ io.on("connection", function (socket) {
   });
 });
 
+// SERVER
 server.listen(PORT, () =>
   console.log(`POS system server listening on port: ${PORT}`)
 );
+
+// To Start the Server run:
+// nodemon index.js
